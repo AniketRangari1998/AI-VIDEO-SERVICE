@@ -1,4 +1,4 @@
-🎬 AI Video Generation Service (Arcads-style)
+**🎬 AI Video Generation Service (Arcads-style)**
 
 This repository provides a local AI backend for generating talking avatar videos and product promotion videos using open-source AI models.
 
@@ -61,25 +61,11 @@ Required on all OS
 🔗 https://ffmpeg.org
 
 🏗 Project Structure
+<img width="538" height="479" alt="image" src="https://github.com/user-attachments/assets/7843eeff-00d6-4053-bffe-d2bc550f111e" />
+
 ai-video-service/
-├── app/
-│   ├── main.py              # FastAPI entry point
-│   ├── api/
-│   │   ├── health.py        # Health check
-│   │   ├── tts.py           # Text-to-Speech API
-│   │   ├── avatar.py        # Talking avatar generation
-│   │   └── compose.py       # Product promotion video
-│   └── core/
-│       ├── paths.py
-│       └── audio.py
-│
-├── models/
-│   └── SadTalker/           # SadTalker (manual install)
-│
-├── uploads/                 # User uploaded images
-├── output/                  # Generated audio & videos
-├── requirements.txt
-└── README.md
+<img width="538" height="479" alt="image" src="https://github.com/user-attachments/assets/c410f1e6-2058-4cff-86f3-9f06357513e7" />
+
 
 ⚙️ System Requirements
 Minimum (Development)
