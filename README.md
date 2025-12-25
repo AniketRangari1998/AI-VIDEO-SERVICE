@@ -1,10 +1,10 @@
-**🎬 AI Video Generation Service (Arcads-style)**
+**🎬 AI Video Generation Service**
 
 This repository provides a local AI backend for generating talking avatar videos and product promotion videos using open-source AI models.
 
 It demonstrates how platforms like Arcads, Synthesia, HeyGen work internally — combining Text-to-Speech, Talking Head Generation, and Video Composition.
 
-✨ What This Project Does
+**✨ What This Project Does**
 
 ✔ Converts text into natural human-like speech
 ✔ Generates talking avatar videos from a single image
@@ -13,8 +13,8 @@ It demonstrates how platforms like Arcads, Synthesia, HeyGen work internally —
 ✔ Runs locally on CPU (slow but functional)
 ✔ Designed to be moved to GPU/cloud later
 
-🧠 AI Services Used (Important)
-🎤 Text-to-Speech (TTS)
+**🧠 AI Services Used (Important)**
+**🎤 Text-to-Speech (TTS)**
 
 Service: Microsoft Edge Neural TTS
 
@@ -30,7 +30,7 @@ PrabhatNeural is a high-quality Indian English male voice provided by Microsoft.
 
 📌 We do not host any TTS model ourselves — we call Edge TTS locally.
 
-🧑 Talking Avatar Video
+**🧑 Talking Avatar Video**
 
 Model: SadTalker
 
@@ -46,7 +46,7 @@ Output: MP4 talking avatar video
 🙏 Huge thanks to the SadTalker authors for their incredible open-source work.
 This project would not be possible without them.
 
-🎞 Video & Audio Processing
+**🎞 Video & Audio Processing**
 
 Tool: FFmpeg
 
@@ -61,11 +61,10 @@ Required on all OS
 🔗 https://ffmpeg.org
 
 **🏗 Project Structure**
-<img width="538" height="479" alt="image" src="https://github.com/user-attachments/assets/7843eeff-00d6-4053-bffe-d2bc550f111e" />
+<img width="565" height="484" alt="image" src="https://github.com/user-attachments/assets/2f24af6f-bf1d-4aa9-920b-57af0f8179cb" />
 
 
-
-⚙️ System Requirements
+**⚙️ System Requirements**
 Minimum (Development)
 
 RAM: 8 GB
@@ -79,7 +78,7 @@ CPU: Any modern CPU
 ⚠️ CPU mode is slow (1–5 min per video).
 For production quality → GPU is required.
 
-🐍 Python Environment Setup (All OS)
+**🐍 Python Environment Setup (All OS)**
 1️⃣ Install Python
 
 Download from:
@@ -93,7 +92,7 @@ python --version
 python -m venv venv
 
 
-Activate:
+**Activate:**
 
 Windows
 
@@ -135,49 +134,51 @@ sudo apt install ffmpeg -y
 🍎 macOS
 brew install ffmpeg
 
-🤖 SadTalker Manual Setup (Required)
+**🤖 SadTalker Manual Setup (Required)**
 
 SadTalker must be installed manually.
 
-1️⃣ Clone SadTalker
+**1️⃣ Clone SadTalker**
 cd models
 git clone https://github.com/vinthony/SadTalker.git
 
-2️⃣ Download Pretrained Models
+**2️⃣ Download Pretrained Models**
 
 Download from:
-👉 https://huggingface.co/vinthony/SadTalker/tree/main/checkpoints
+👉 https://github.com/OpenTalker/SadTalker/blob/cd4c0465ae0b54a6f85af57f5c65fec9fe23e7f8/scripts/download_models.sh
 
 Required files:
 
-SadTalker_V0.0.2_256.safetensors
-SadTalker_V0.0.2_512.safetensors
-mapping_00109-model.pth.tar
-mapping_00229-model.pth.tar
+Direct download links, download and paste them in the folder -> models/SadTalker/checkpoints
+SadTalker_V0.0.2_256.safetensors - https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/SadTalker_V0.0.2_256.safetensors
+SadTalker_V0.0.2_512.safetensors - https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/SadTalker_V0.0.2_512.safetensors
+mapping_00109-model.pth.tar - https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar
+mapping_00229-model.pth.tar - https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00229-model.pth.tar
+
+Dowload weights, and paste them in the folder -> models/gfpan/weights
+https://github.com/xinntao/facexlib/releases/download/v0.1.0/alignment_WFLW_4HG.pth
+https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth
+https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth
 
 
-Place them here:
-
-models/SadTalker/checkpoints/
-
-3️⃣ Verify SadTalker
+**3️⃣ Verify SadTalker**
 python models/SadTalker/inference.py --help
 
 
 If help appears → setup is correct ✅
 
-▶️ Start the Application
+**▶️ Start the Application**
 uvicorn app.main:app --reload --port 9000
 
 
-Open:
+**Open:**
 
-http://localhost:9000/docs
+Use Postman or any other tool.
 
 🔌 API Endpoints (Detailed)
-0️⃣ Health Check
+**0️⃣ Health Check**
 
-GET /health
+GET http://localhost:9000/health
 
 Checks if backend is running.
 
@@ -185,9 +186,9 @@ Response:
 
 { "status": "UP" }
 
-🎤 1️⃣ Generate Audio (Text → Speech)
+**🎤 1️⃣ Generate Audio (Text → Speech)**
 
-POST /tts
+POST http://localhost:9000/tts
 
 What it does
 
@@ -209,9 +210,9 @@ Response:
   "audio_path": "output/audio.mp3"
 }
 
-🧑 2️⃣ Generate Talking Avatar Video
+**🧑 2️⃣ Generate Talking Avatar Video**
 
-POST /avatar
+POST http://localhost:9000/avatar
 
 What it does
 
@@ -238,9 +239,9 @@ Response:
 
 ⏳ CPU time: 1–5 minutes
 
-🛍 3️⃣ Generate Product Promotion Video
+**🛍 3️⃣ Generate Product Promotion Video**
 
-POST /compose
+POST http://localhost:9000/compose
 
 What it does
 
@@ -262,7 +263,7 @@ Response:
   "final_video": "output/final_promo.mp4"
 }
 
-🔄 Typical Workflow
+**🔄 Typical Workflow**
 POST /tts
    ↓
 POST /avatar
@@ -283,19 +284,9 @@ Disable CPU-only mode
 
 Deploy SadTalker separately
 
-🚀 Future Improvements
 
-Async job processing
 
-File upload API
-
-Single /generate-ad endpoint
-
-GPU deployment (Azure / AWS)
-
-Spring Boot integration
-
-🙌 Credits
+**🙌 Credits**
 
 SadTalker – https://github.com/vinthony/SadTalker
 
@@ -305,7 +296,7 @@ FFmpeg
 
 This project builds on amazing open-source contributions ❤️
 
-📄 License & Disclaimer
+**📄 License & Disclaimer**
 
 This project is for educational & development purposes
 
@@ -317,7 +308,7 @@ FFmpeg
 
 Microsoft TTS
 
-🏁 Final Note
+**🏁 Final Note**
 
 This repository shows how real AI video platforms are engineered —
 from orchestration to ML integration to scaling.
