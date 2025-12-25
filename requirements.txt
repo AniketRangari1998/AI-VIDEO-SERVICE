@@ -1,0 +1,28 @@
+# ---------- Web API ----------
+fastapi==0.110.0
+uvicorn==0.29.0
+pydantic==2.6.4
+
+# ---------- Audio ----------
+pydub==0.25.1
+ffmpeg-python==0.2.0
+soundfile==0.12.1
+
+# ---------- TTS ----------
+edge-tts==6.1.10
+
+# ---------- Core ML (SadTalker compatible) ----------
+torch==1.13.1
+torchvision==0.14.1
+torchaudio==0.13.1
+
+# ---------- SadTalker dependencies ----------
+numpy==1.23.5
+scipy==1.10.1
+opencv-python==4.9.0.80
+Pillow==10.2.0
+safetensors==0.4.2
+
+# ---------- Face enhancement ----------
+basicsr==1.4.2
+gfpgan==1.3.8
