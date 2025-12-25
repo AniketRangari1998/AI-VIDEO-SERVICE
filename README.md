@@ -60,11 +60,9 @@ Required on all OS
 
 🔗 https://ffmpeg.org
 
-🏗 Project Structure
+**🏗 Project Structure**
 <img width="538" height="479" alt="image" src="https://github.com/user-attachments/assets/7843eeff-00d6-4053-bffe-d2bc550f111e" />
 
-ai-video-service/
-<img width="538" height="479" alt="image" src="https://github.com/user-attachments/assets/c410f1e6-2058-4cff-86f3-9f06357513e7" />
 
 
 ⚙️ System Requirements
